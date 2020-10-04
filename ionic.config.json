@@ -1,5 +1,7 @@
 {
   "name": "jackOfAllTrackers",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

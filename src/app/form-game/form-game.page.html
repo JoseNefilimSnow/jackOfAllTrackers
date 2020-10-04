@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-title>Formulario de Juego:</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" (click)="cancel()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="mr-2 ml-2 mt-4">
+
+    <form [formGroup]="gameForm" (ngSubmit)="gameSubmit()">
+
+      <ion-item class="form-class">
+        <ion-input type="text" text-wrap placeholder="Nombre del Juego" formControlName="name">
+        </ion-input>
+      </ion-item>
+
+
+      <ion-card>
+
+        <ion-select wrap-text interface="popover" formControlName="color" placeholder="Elija un color de tarjeta ...">
+          <ion-select-option class="supersize" value="primary">- Azul</ion-select-option>
+          <ion-select-option class="supersize" value="success">- Verde</ion-select-option>
+          <ion-select-option class="supersize" value="warning">- Amarillo</ion-select-option>
+          <ion-select-option class="supersize" value="orange">- Naranja</ion-select-option>
+          <ion-select-option class="supersize" value="light">- Claro</ion-select-option>
+          <ion-select-option class="supersize" value="medium">- Oscuro</ion-select-option>
+          <ion-select-option class="supersize" value="danger">- Rojo</ion-select-option>
+        </ion-select>
+      </ion-card>
+
+      <ion-item class="form-class">
+        <ion-label>¿Favorito?</ion-label>
+        <ion-checkbox slot="end" [value]="fav" [checked]="fav" (ionChange)="onSelectionChange()">
+        </ion-checkbox>
+      </ion-item>
+
+      <ion-row class="mt-3">
+        <ion-col size="6">
+          <ion-button expand="full" color="danger" (click)="cancel()">Cancelar</ion-button>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-button expand="full" color="primary" type="submit" [disabled]="!gameForm.valid">
+            Enviar</ion-button>
+        </ion-col>
+
+      </ion-row>
+    </form>
+  </ion-card>
+</ion-content>

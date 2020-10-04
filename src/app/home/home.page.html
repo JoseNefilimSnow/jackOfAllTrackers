@@ -1,20 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-title class="text-center">
+      Pantalla Principal
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-list class="ml-2 mr-2 mt-2">
+    <ion-item *ngFor="let game of games" [color]=game.color (click)="openGame(game)" class=" mt-4 text-center
+      text-uppercase">
+      <ion-label>{{game.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" class="mb-4 mr-2" horizontal="end" slot="fixed">
+    <ion-fab-button color="orange" (click)="addGame()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

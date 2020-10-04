@@ -4,12 +4,20 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'gameform',
+    loadChildren: () => import('./form-game/form-game.module').then(m => m.FormGamePageModule)
+  },
+  {
+    path: 'game',
+    loadChildren: () => import('./game/game.module').then(m => m.GamePageModule)
   },
 ];
 
