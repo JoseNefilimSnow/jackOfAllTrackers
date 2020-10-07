@@ -5,6 +5,6 @@ This is a basic tracker that would store information locally from rolls on gacha
 
 ## Entity Diagram (WIP)
 
-- Games(id,name:string,favorite?:boolean)
+- Games(id,name:string,color)
 - Banners (id,id_game,name:string,end_date:Date)
 - Rolls (id,id_banner,name:string,rarity:string,number:number)

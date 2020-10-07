@@ -19,6 +19,19 @@ const routes: Routes = [
     path: 'game',
     loadChildren: () => import('./game/game.module').then(m => m.GamePageModule)
   },
+  {
+    path: 'bannerform',
+    loadChildren: () => import('./form-banner/form-banner.module').then(m => m.FormBannerPageModule)
+  },
+  {
+    path: 'banner',
+    loadChildren: () => import('./banner/banner.module').then(m => m.BannerPageModule)
+  },
+  {
+    path: 'rollform',
+    loadChildren: () => import('./form-roll/form-roll.module').then(m => m.FormRollPageModule)
+  },
+
 ];
 
 @NgModule({

@@ -54,7 +54,8 @@ export class UtilsService {
     await loading.present();
   }
 
-  formatDate(date) {
+  formatDate(dateIn) {
+    let date = new Date(dateIn)
     var monthNames = [
       "Enero", "Febrero", "Marzo",
       "Abril", "Mayo", "Junio", "Julio",

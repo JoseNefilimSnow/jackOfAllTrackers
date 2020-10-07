@@ -32,7 +32,7 @@ export class DbService {
       })
         .then((db: SQLiteObject) => {
 
-          db.executeSql('CREATE TABLE IF NOT EXISTS games(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR NOT NULL,favorite BOOLEAN,color VARCHAR NOT NULL);', [])
+          db.executeSql('CREATE TABLE IF NOT EXISTS games(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR NOT NULL,color VARCHAR NOT NULL);', [])
             .catch(e => console.log(e));
           db.executeSql('CREATE TABLE IF NOT EXISTS banners(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR NOT NULL,id_games INTEGER NOT NULL,end_date DATE NOT NULL,state VARCHAR NOT NULL,color VARCHAR NOT NULL);', [])
             .then(() => console.log('Executed SQL'))
@@ -58,12 +58,12 @@ export class DbService {
   }
 
   addGames(games) {
-    return this.database.executeSql('INSERT INTO games (name,favorite,color) VALUES (?,?,?)', [games.name, games.favorite, games.color])
+    return this.database.executeSql('INSERT INTO games (name,color) VALUES (?,?)', [games.name, games.color])
 
   }
 
   updateGames(id, games) {
-    return this.database.executeSql(`UPDATE games SET name = ?,favorite = ?,color = ? WHERE id = ${id}`, [games.name, games.favorite, games.color]).catch(err => console.log(err));
+    return this.database.executeSql(`UPDATE games SET name = ?,color = ? WHERE id = ${id}`, [games.name, games.color]).catch(err => console.log(err));
 
   }
 
@@ -92,7 +92,7 @@ export class DbService {
   }
 
   loadBannersFromGames(id_games) {
-    return this.database.executeSql(`SELECT id_games FROM banners where id_games = ${id_games}`, [])
+    return this.database.executeSql(`SELECT * FROM banners where id_games = ${id_games}`, [])
 
   }
 

@@ -1,12 +1,35 @@
 <ion-header>
   <ion-toolbar [color]=game.color>
-    <ion-title class="text-uppercase">{{game.name}}</ion-title>
+    <ion-title class="text-center text-uppercase">
+      {{game.name}}
+    </ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="secondary" (click)="editGame()">
+        <ion-icon name="pencil"></ion-icon>
+      </ion-button>
+      <ion-button color="ddanger" (click)="deleteGame()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list class="ml-2 mr-2 mt-4 text-center">
+    <ion-label class=" mt-4  font-weight-bold">Banners</ion-label>
+    <ion-item *ngFor="let banner of banners" [color]=banner.color (click)="openBanner(banner)" class=" mt-3 text-center
+      text-uppercase">
+      <ion-label>Nombre: {{banner.name}}<br />Fecha Limite: {{this.utils.formatDate(banner.end_date)}}<br /> Estado:
+        {{banner.state}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" class="mb-4 mr-2" horizontal="end" slot="fixed">
+    <ion-fab-button color="orange" (click)="addBanner()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

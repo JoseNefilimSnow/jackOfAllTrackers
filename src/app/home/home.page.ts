@@ -29,20 +29,15 @@ export class HomePage {
       }
     })
   }
-  // ionViewDidEnter() {
-  //   for (let game of this.games) {
-  //     if (game.favorite) {
-  //       this.openGame(game);
-  //     }
-  //   }
-  // }
+
   openGame(game) {
+    console.log(game)
     let params: NavigationExtras = {
       state: {
         game: game
       }
     }
-    this.route.navigate(["/game", params])
+    this.route.navigate(["/game"], params)
   }
   addGame() {
     this.route.navigate(['/gameform']);
