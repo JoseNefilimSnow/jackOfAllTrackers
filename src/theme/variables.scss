@@ -100,6 +100,24 @@
   --ion-color-orange-contrast-rgb: 0, 0, 0;
   --ion-color-orange-shade: #e08f00;
   --ion-color-orange-tint: #ffab1a;
+
+  //Morado
+
+  --ion-color-morado: #ba13f6;
+  --ion-color-morado-rgb: 186, 19, 246;
+  --ion-color-morado-contrast: #ffffff;
+  --ion-color-morado-contrast-rgb: 255, 255, 255;
+  --ion-color-morado-shade: #a411d8;
+  --ion-color-morado-tint: #c12bf7;
+
+  //Dorado
+
+  --ion-color-dorado: #f6d013;
+  --ion-color-dorado-rgb: 246, 208, 19;
+  --ion-color-dorado-contrast: #000000;
+  --ion-color-dorado-contrast-rgb: 0, 0, 0;
+  --ion-color-dorado-shade: #d8b711;
+  --ion-color-dorado-tint: #f7d52b;
 }
 
 .ion-color-orange {
@@ -118,6 +136,24 @@
   --ion-color-contrast-rgb: var(--ion-color-ddanger-contrast-rgb);
   --ion-color-shade: var(--ion-color-ddanger-shade);
   --ion-color-tint: var(--ion-color-ddanger-tint);
+}
+
+.ion-color-dorado {
+  --ion-color-base: var(--ion-color-dorado);
+  --ion-color-base-rgb: var(--ion-color-dorado-rgb);
+  --ion-color-contrast: var(--ion-color-dorado-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-dorado-contrast-rgb);
+  --ion-color-shade: var(--ion-color-dorado-shade);
+  --ion-color-tint: var(--ion-color-dorado-tint);
+}
+
+.ion-color-morado {
+  --ion-color-base: var(--ion-color-morado);
+  --ion-color-base-rgb: var(--ion-color-morado-rgb);
+  --ion-color-contrast: var(--ion-color-morado-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-morado-contrast-rgb);
+  --ion-color-shade: var(--ion-color-morado-shade);
+  --ion-color-tint: var(--ion-color-morado-tint);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,9 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>form-roll</ion-title>
+  <ion-toolbar [color]="bannerColor">
+    <ion-title>Formulario de Roll <br/>// Alteración:</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="roll" (click)="cancel()"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card class="mr-2 ml-2 mt-4">
 
+    <form [formGroup]="rollForm" (ngSubmit)="rollSubmit()">
+
+      <ion-item class="form-class">
+        <ion-input type="text" text-wrap placeholder="Nombre del Roll" formControlName="name">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="form-class">
+        <ion-input type="text" text-wrap placeholder="Tipo de Roll" formControlName="type">
+        </ion-input>
+      </ion-item>
+
+      <ion-card>
+
+        <ion-select wrap-text interface="popover" formControlName="rarity" placeholder="Elija un nivel de rareza ...">
+          <ion-select-option class="supersize" value="legendary">- Dorado//<br/> 5 estrellas//<br/>Legendario</ion-select-option>
+          <ion-select-option class="supersize" value="epic">- Morado// <br/>4 estrellas// <br/>Épico </ion-select-option>
+          <ion-select-option class="supersize" value="rare">- Azul// <br/>3 estrellas// <br/>Raro</ion-select-option>
+          <ion-select-option class="supersize" value="common">- Plateado//<br/> < 3 estrellas // <br/>Común //</ion-select-option>
+        </ion-select>
+      </ion-card>
+
+      <ion-row class="mt-3">
+        <ion-col size="6">
+          <ion-button expand="full" color="danger" (click)="cancel()">Cancelar</ion-button>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-button expand="full" color="primary" type="submit" [disabled]="!rollForm.valid">
+            Enviar</ion-button>
+        </ion-col>
+
+      </ion-row>
+    </form>
+  </ion-card>
 </ion-content>

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar [color]="gameColor">
-    <ion-title>Formulario de Banner:</ion-title>
+    <ion-title>Formulario de Contenido <br>// Banner:</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home" (click)="cancel()"></ion-back-button>
     </ion-buttons>
@@ -13,7 +13,7 @@
     <form [formGroup]="bannerForm" (ngSubmit)="bannerSubmit()">
 
       <ion-item class="form-class">
-        <ion-input type="text" text-wrap placeholder="Nombre del Banner" formControlName="name">
+        <ion-input type="text" text-wrap placeholder="Nombre del Contenido//Banner" formControlName="name">
         </ion-input>
       </ion-item>
 

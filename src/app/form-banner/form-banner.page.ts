@@ -34,6 +34,7 @@ export class FormBannerPage implements OnInit {
         if (this.router.getCurrentNavigation().extras.state.banner) {
           this.editBanner = this.router.getCurrentNavigation().extras.state.banner
           this.bannerForm.controls.name.setValue(this.editBanner.name);
+          this.bannerForm.controls.end_date.setValue(this.editBanner.end_date);
           this.bannerForm.controls.color.setValue(this.editBanner.color);
 
           this.mode = "edit";
@@ -67,7 +68,7 @@ export class FormBannerPage implements OnInit {
       case "edit":
 
         this.db.updateBanners(this.editBanner.id, banner).then(res => {
-          this.utils.presentToast('Juego editado correctamente', 3500, "top");
+          this.utils.presentToast('Banner//Contenido editado correctamente', 3500, "top");
           this.cancel();
         })
         break;
@@ -76,7 +77,7 @@ export class FormBannerPage implements OnInit {
 
   cancel() {
     this.bannerForm.reset;
-    this.router.navigate(['/home']);
+    this.nav.pop();
   }
 
 

@@ -37,7 +37,7 @@ export class DbService {
           db.executeSql('CREATE TABLE IF NOT EXISTS banners(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR NOT NULL,id_games INTEGER NOT NULL,end_date DATE NOT NULL,state VARCHAR NOT NULL,color VARCHAR NOT NULL);', [])
             .then(() => console.log('Executed SQL'))
             .catch(e => console.log(e));
-          db.executeSql('CREATE TABLE IF NOT EXISTS rolls(id INTEGER PRIMARY KEY AUTOINCREMENT,id_banners INTEGER NOT NULL,name VARCHAR NOT NULL,type VARCHAR NOT NULL, rarity VARCHAR NOT NULL,roll_number INTEGER NOT NULL);', [])
+          db.executeSql('CREATE TABLE IF NOT EXISTS rolls(id INTEGER PRIMARY KEY AUTOINCREMENT,id_banner INTEGER NOT NULL,name VARCHAR NOT NULL,type VARCHAR NOT NULL, rarity VARCHAR NOT NULL,roll_number INTEGER NOT NULL);', [])
             .catch(e => console.log(e));
 
           this.database = db;
@@ -129,12 +129,17 @@ export class DbService {
     return this.database.executeSql('SELECT * FROM rolls ', []);
   }
 
+  loadRollsFromBanner(id_banner) {
+    return this.database.executeSql(`SELECT * FROM rolls where id_banner = ${id_banner}`, [])
+
+  }
+
   addRolls(rolls) {
-    return this.database.executeSql('INSERT INTO rolls (name,id_banner,rarity,type,number) VALUES (?,?,?,?,?)', [rolls.name, rolls.id_banner, rolls.rarity, rolls.type, rolls.number]).catch(err => console.log(err))
+    return this.database.executeSql('INSERT INTO rolls (name,id_banner,rarity,type,roll_number) VALUES (?,?,?,?,?)', [rolls.name, rolls.id_banner, rolls.rarity, rolls.type, rolls.roll_number]).catch(err => console.log(err))
   }
 
   updateRolls(id, rolls) {
-    return this.database.executeSql(`UPDATE rolls SET name=?,rarity=?,type,number WHERE id = ${id}`, [rolls.name, rolls.id_banner, rolls.rarity, rolls.type, rolls.number]).catch(err => console.log(err));
+    return this.database.executeSql(`UPDATE rolls SET name=?,rarity=?,type,roll_number WHERE id = ${id}`, [rolls.name, rolls.id_banner, rolls.rarity, rolls.type, rolls.roll_number]).catch(err => console.log(err));
   }
 
   deleteRolls(id) {

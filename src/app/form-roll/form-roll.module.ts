@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,8 +13,9 @@ import { FormRollPage } from './form-roll.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     FormRollPageRoutingModule
   ],
   declarations: [FormRollPage]
 })
-export class FormRollPageModule {}
+export class FormRollPageModule { }

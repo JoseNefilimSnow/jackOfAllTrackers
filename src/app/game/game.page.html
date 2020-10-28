@@ -19,7 +19,7 @@
 
 <ion-content>
   <ion-list class="ml-2 mr-2 mt-4 text-center">
-    <ion-label class=" mt-4  font-weight-bold">Banners</ion-label>
+    <ion-label class=" mt-4  font-weight-bold">|| Contenido || Banners || </ion-label>
     <ion-item *ngFor="let banner of banners" [color]=banner.color (click)="openBanner(banner)" class=" mt-3 text-center
       text-uppercase">
       <ion-label>Nombre: {{banner.name}}<br />Fecha Limite: {{this.utils.formatDate(banner.end_date)}}<br /> Estado:
@@ -28,7 +28,7 @@
     </ion-item>
   </ion-list>
   <ion-fab vertical="bottom" class="mb-4 mr-2" horizontal="end" slot="fixed">
-    <ion-fab-button color="orange" (click)="addBanner()">
+    <ion-fab-button color="dark" (click)="addBanner()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

@@ -12,7 +12,7 @@ import { UtilsService } from '../services/utils/utils.service';
 export class GamePage implements OnInit {
   game = { id: null, name: "", color: "" };
   banners = [];
-  constructor(private utils: UtilsService, private nav: NavController, private db: DbService, private router: Router, private route: ActivatedRoute) {
+  constructor(public utils: UtilsService, private nav: NavController, private db: DbService, private router: Router, private route: ActivatedRoute) {
 
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
